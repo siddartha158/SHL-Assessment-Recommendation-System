@@ -1,0 +1,956 @@
+[
+  {
+    "name": "Automata Fix (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/automata-fix-new/",
+    "description": "Coding assessment that tests ability to identify and fix bugs in code. Evaluates debugging skills and programming knowledge across multiple languages.",
+    "duration": 30,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Core Java (Entry Level) (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/core-java-entry-level-new/",
+    "description": "Multi-choice test that measures the knowledge of Java programming concepts, OOP principles, data structures, and basic algorithms at entry level.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Java 8 (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/java-8-new/",
+    "description": "Assesses knowledge of Java 8 features including lambda expressions, streams, functional interfaces, and modern Java development practices.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Core Java (Advanced Level) (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/core-java-advanced-level-new/",
+    "description": "Advanced Java assessment covering concurrency, design patterns, JVM internals, performance optimization, and enterprise Java concepts.",
+    "duration": 40,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Automata - Selenium",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/automata-selenium/",
+    "description": "Hands-on coding assessment for Selenium WebDriver automation testing skills. Tests ability to write automated test scripts.",
+    "duration": 40,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Automata - SQL (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/automata-sql-new/",
+    "description": "Hands-on SQL coding environment that measures ability to write SQL queries, stored procedures, and data manipulation statements.",
+    "duration": 30,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Python (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/python-new/",
+    "description": "Multi-choice test that measures the knowledge of Python programming, databases, modules and library. Tests Python syntax, data structures, and scripting.",
+    "duration": 11,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "JavaScript (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/javascript-new/",
+    "description": "Assesses knowledge of JavaScript programming including ES6+, DOM manipulation, async programming, closures, and modern JS patterns.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "SQL Server (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/sql-server-new/",
+    "description": "Tests knowledge of Microsoft SQL Server, including T-SQL, database design, query optimization, stored procedures and database administration.",
+    "duration": 30,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Occupational Personality Questionnaire (OPQ32r)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/occupational-personality-questionnaire-opq32r/",
+    "description": "Measures 32 personality characteristics relevant to workplace behavior and performance. Provides insights into how a person approaches work, interacts with others, and manages emotions. Widely used for selection and development.",
+    "duration": 25,
+    "test_type": ["Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Verify Numerical Ability",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/verify-numerical-ability/",
+    "description": "Measures ability to work with numerical data, interpret tables and graphs, and solve numerical problems. Used for professional and managerial roles.",
+    "duration": 17,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Verify Verbal Ability - Next Generation",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/verify-verbal-ability-next-generation/",
+    "description": "Assesses verbal reasoning ability including understanding written information, drawing logical conclusions from text, and critical thinking.",
+    "duration": 17,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "SHL Verify Interactive - Inductive Reasoning",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/shl-verify-interactive-inductive-reasoning/",
+    "description": "Interactive inductive reasoning test measuring ability to identify patterns and relationships in abstract information. Predicts learning ability and problem-solving.",
+    "duration": 25,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "SHL Verify Interactive - Numerical Calculation",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/shl-verify-interactive-numerical-calculation/",
+    "description": "Interactive numerical calculation test assessing ability to perform calculations accurately. Suitable for roles requiring quantitative analysis.",
+    "duration": 25,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Global Skills Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/global-skills-assessment/",
+    "description": "Comprehensive assessment measuring core cognitive abilities and professional skills across multiple domains. Suitable for diverse professional roles.",
+    "duration": 45,
+    "test_type": ["Ability & Aptitude", "Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Professional 7.1 Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/professional-7-1-solution/",
+    "description": "Comprehensive solution for professional-level hiring measuring cognitive ability, personality, and motivation. Ideal for experienced professionals and managers.",
+    "duration": 40,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "HTML/CSS (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/htmlcss-new/",
+    "description": "Tests knowledge of HTML5 and CSS3 including semantic markup, responsive design, flexbox, grid, and modern web development practices.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "CSS3 (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/css3-new/",
+    "description": "Assesses CSS3 knowledge including selectors, animations, transitions, media queries, and advanced styling techniques.",
+    "duration": 15,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Manual Testing (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/manual-testing-new/",
+    "description": "Evaluates knowledge of software testing methodologies, test case design, bug reporting, test planning, and quality assurance practices.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Tableau (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/tableau-new/",
+    "description": "Assesses knowledge of Tableau for data visualization, dashboard creation, data blending, calculated fields, and BI reporting.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Data Warehousing Concepts",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/data-warehousing-concepts/",
+    "description": "Tests understanding of data warehousing concepts, ETL processes, dimensional modeling, star schemas, and business intelligence fundamentals.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "SQL Server Analysis Services (SSAS) (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/sql-server-analysis-services-%28ssas%29-%28new%29/",
+    "description": "Assesses knowledge of SSAS for OLAP cubes, multidimensional models, MDX queries, and data analysis services.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Marketing (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/marketing-new/",
+    "description": "Tests knowledge of marketing principles, digital marketing, branding, market research, consumer behavior, and marketing strategy.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Digital Advertising (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/digital-advertising-new/",
+    "description": "Assesses knowledge of digital advertising platforms, PPC, programmatic advertising, display ads, social media advertising, and campaign optimization.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Search Engine Optimization (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/search-engine-optimization-new/",
+    "description": "Tests knowledge of SEO best practices, keyword research, on-page and off-page optimization, link building, and search engine algorithms.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Selenium (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/selenium-new/",
+    "description": "Tests conceptual knowledge of Selenium WebDriver framework, test automation principles, and automated testing best practices.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Drupal (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/drupal-new/",
+    "description": "Assesses knowledge of Drupal CMS including content management, theming, modules, and site administration.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Microsoft Excel 365 (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/microsoft-excel-365-new/",
+    "description": "Comprehensive assessment of Microsoft Excel 365 skills including advanced formulas, pivot tables, data analysis, macros, and Power Query.",
+    "duration": 30,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Microsoft Excel 365 Essentials (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/microsoft-excel-365-essentials-new/",
+    "description": "Tests essential Microsoft Excel skills including basic formulas, formatting, charts, data sorting and filtering for office roles.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Basic Computer Literacy - Windows 10 (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/basic-computer-literacy-windows-10-new/",
+    "description": "Tests basic computer skills including Windows 10 navigation, file management, internet browsing, and fundamental software usage.",
+    "duration": 15,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "English Comprehension (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/english-comprehension-new/",
+    "description": "Measures ability to understand and interpret written English. Tests reading comprehension, vocabulary, and language understanding for professional roles.",
+    "duration": 15,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Business Communication (Adaptive)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/business-communication-adaptive/",
+    "description": "Adaptive assessment measuring written business communication skills, email writing, professional correspondence, and communication effectiveness.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Written English v1",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/written-english-v1/",
+    "description": "Evaluates written English proficiency including grammar, spelling, punctuation, and professional writing skills for customer-facing roles.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "SVAR Spoken English (Indian Accent) (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/svar-spoken-english-indian-accent-new/",
+    "description": "AI-powered spoken English assessment calibrated for Indian accent. Measures pronunciation, fluency, grammar, and verbal communication skills.",
+    "duration": 15,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Interpersonal Communications",
+    "url": "https://www.shl.com/products/product-catalog/view/interpersonal-communications/",
+    "description": "Measures interpersonal communication skills, ability to work with others, teamwork, and collaboration in professional settings.",
+    "duration": 20,
+    "test_type": ["Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "OPQ Leadership Report",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/opq-leadership-report/",
+    "description": "Uses OPQ32 data to generate detailed leadership report covering leadership styles, team management, decision-making, and executive competencies.",
+    "duration": 25,
+    "test_type": ["Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "OPQ Team Types and Leadership Styles Report",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/opq-team-types-and-leadership-styles-report",
+    "description": "Provides insights into team role preferences and leadership styles based on OPQ personality data. Ideal for team development and leadership selection.",
+    "duration": 25,
+    "test_type": ["Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Enterprise Leadership Report 2.0",
+    "url": "https://www.shl.com/products/product-catalog/view/enterprise-leadership-report-2-0/",
+    "description": "Comprehensive leadership assessment report measuring strategic thinking, influencing, stakeholder management, and enterprise-level leadership competencies.",
+    "duration": 35,
+    "test_type": ["Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Enterprise Leadership Report",
+    "url": "https://www.shl.com/products/product-catalog/view/enterprise-leadership-report/",
+    "description": "Leadership assessment measuring key executive competencies including strategic vision, people leadership, and business acumen for senior roles.",
+    "duration": 35,
+    "test_type": ["Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Manager 8.0 JFA",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/manager-8-0-jfa-4310/",
+    "description": "Managerial assessment measuring leadership potential, people management skills, decision-making, and team leadership capabilities.",
+    "duration": 40,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Entry Level Sales 7.1",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/entry-level-sales-7-1/",
+    "description": "Comprehensive assessment for entry-level sales roles measuring sales aptitude, customer orientation, persistence, and motivation to sell.",
+    "duration": 35,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Entry Level Sales Sift Out 7.1",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/entry-level-sales-sift-out-7-1/",
+    "description": "Short screening assessment for entry-level sales candidates measuring basic sales competencies and customer service orientation.",
+    "duration": 20,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Entry Level Sales Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/entry-level-sales-solution/",
+    "description": "Complete selection solution for entry-level sales including aptitude tests, personality assessment, and sales scenario simulations.",
+    "duration": 40,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior", "Simulations"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Technical Sales Associate Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/technical-sales-associate-solution/",
+    "description": "Assessment solution for technical sales roles combining technical knowledge evaluation with sales aptitude and customer relationship skills.",
+    "duration": 45,
+    "test_type": ["Knowledge & Skills", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Sales Representative Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/sales-representative-solution/",
+    "description": "Comprehensive selection tool for sales representative roles measuring sales skills, customer focus, negotiation, and results orientation.",
+    "duration": 40,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Administrative Professional Short Form",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/administrative-professional-short-form/",
+    "description": "Short screening assessment for administrative professional roles measuring attention to detail, organizational skills, and office competencies.",
+    "duration": 30,
+    "test_type": ["Ability & Aptitude", "Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Bank Administrative Assistant Short Form",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/bank-administrative-assistant-short-form/",
+    "description": "Assessment for banking administrative roles measuring accuracy, attention to detail, numerical skills, and professional conduct.",
+    "duration": 30,
+    "test_type": ["Ability & Aptitude", "Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Financial Professional Short Form",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/financial-professional-short-form/",
+    "description": "Screening assessment for financial professionals measuring numerical reasoning, analytical thinking, and financial concept knowledge.",
+    "duration": 30,
+    "test_type": ["Ability & Aptitude", "Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "General Entry Level - Data Entry 7.0 Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/general-entry-level-data-entry-7-0-solution/",
+    "description": "Assessment solution for data entry roles measuring typing accuracy, speed, attention to detail, and basic computer skills.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills", "Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Professional 7.0 Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/professional-7-0-solution-3958/",
+    "description": "Comprehensive selection solution for professional roles measuring cognitive ability and personality for effective job performance prediction.",
+    "duration": 40,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "WriteX Email Writing Sales (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/writex-email-writing-sales-new/",
+    "description": "Simulated email writing assessment measuring sales communication skills, professional tone, persuasiveness, and business writing for sales roles.",
+    "duration": 20,
+    "test_type": ["Simulations", "Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Technology Professional 8.0 Job Focused Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/technology-professional-8-0-job-focused-assessment/",
+    "description": "The Technology Job Focused Assessment assesses key behavioral attributes required for success in fast-paced technology roles.",
+    "duration": 10,
+    "test_type": ["Competencies", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Agile Software Development",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/agile-software-development/",
+    "description": "Tests knowledge of Agile methodologies, Scrum framework, sprint planning, backlog management, and agile project management principles.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Product Management",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/product-management/",
+    "description": "Comprehensive assessment for product managers covering product strategy, roadmapping, stakeholder management, data-driven decision making, and SDLC.",
+    "duration": 30,
+    "test_type": ["Knowledge & Skills", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "JIRA (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/jira-new/",
+    "description": "Tests knowledge of JIRA project management tool including issue tracking, workflow configuration, sprint management, and Agile board usage.",
+    "duration": 15,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Scrum Master",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/scrum-master/",
+    "description": "Assesses Scrum Master knowledge including Scrum ceremonies, impediment removal, team facilitation, and Agile coaching capabilities.",
+    "duration": 20,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Confluence (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/confluence-new/",
+    "description": "Tests knowledge of Atlassian Confluence for documentation, knowledge management, team collaboration, and wiki-based content creation.",
+    "duration": 15,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Customer Service",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/customer-service/",
+    "description": "Assesses customer service skills including empathy, problem resolution, communication, patience, and ability to handle difficult customers.",
+    "duration": 25,
+    "test_type": ["Competencies", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Customer Support Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/customer-support-assessment/",
+    "description": "Comprehensive assessment for customer support roles measuring communication, empathy, problem-solving, and customer-centric orientation.",
+    "duration": 30,
+    "test_type": ["Competencies", "Personality & Behavior", "Simulations"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Graduate 8.0 Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/graduate-8-0-solution/",
+    "description": "Assessment solution designed for graduate-level hiring. Measures cognitive abilities, personality traits, and work motivations suitable for new graduates.",
+    "duration": 35,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Deductive Reasoning",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/deductive-reasoning/",
+    "description": "Measures ability to draw logical conclusions from given information. Tests analytical and critical thinking skills important for professional roles.",
+    "duration": 20,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Inductive Reasoning",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/inductive-reasoning/",
+    "description": "Measures ability to identify patterns and rules from abstract information. Strong predictor of learning agility and problem-solving capability.",
+    "duration": 24,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Numerical Reasoning",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/numerical-reasoning/",
+    "description": "Tests ability to analyze numerical data, interpret statistical information, and make correct decisions based on numerical information.",
+    "duration": 25,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Verbal Reasoning",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/verbal-reasoning/",
+    "description": "Assesses ability to evaluate written arguments, understand complex text, and draw correct conclusions from verbal information.",
+    "duration": 19,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Mechanical Comprehension",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/mechanical-comprehension/",
+    "description": "Tests understanding of mechanical principles, spatial reasoning, and physical concepts. Used for engineering and technical roles.",
+    "duration": 25,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Spatial Reasoning",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/spatial-reasoning/",
+    "description": "Assesses ability to mentally manipulate 2D and 3D shapes. Important for engineering, design, and technical positions.",
+    "duration": 25,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Universal Competency Framework (UCF)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/universal-competency-framework/",
+    "description": "Behavioral competency assessment based on SHL's Universal Competency Framework covering leadership, execution, and people management competencies.",
+    "duration": 30,
+    "test_type": ["Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Motivation Questionnaire (MQ)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/motivation-questionnaire/",
+    "description": "Assesses work motivations, energy and engagement drivers. Helps identify what motivates candidates and predicts engagement and retention.",
+    "duration": 20,
+    "test_type": ["Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Work Strengths",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/work-strengths/",
+    "description": "Identifies natural strengths and potential performance derailers in work settings. Measures behavioral tendencies that impact job performance.",
+    "duration": 15,
+    "test_type": ["Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Workplace English Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/workplace-english-assessment/",
+    "description": "Comprehensive English language assessment for workplace communication covering reading, writing, and language comprehension for professional roles.",
+    "duration": 30,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Call Center Agent Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/call-center-agent-solution/",
+    "description": "Complete selection solution for call center agents measuring verbal ability, customer service orientation, and role-specific simulations.",
+    "duration": 35,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior", "Simulations"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Contact Center Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/contact-center-solution/",
+    "description": "Assessment solution for contact center roles including inbound and outbound agents measuring communication, empathy and multitasking.",
+    "duration": 40,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Data Science",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/data-science/",
+    "description": "Assesses data science skills including statistical analysis, machine learning concepts, Python/R programming, and data visualization techniques.",
+    "duration": 30,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Machine Learning",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/machine-learning/",
+    "description": "Tests knowledge of machine learning algorithms, model training, validation, feature engineering, and applied ML for data science roles.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "R Programming (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/r-programming-new/",
+    "description": "Assesses R programming skills for statistical computing, data manipulation with tidyverse, visualization with ggplot2, and statistical analysis.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Microsoft Power BI (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/microsoft-power-bi-new/",
+    "description": "Tests Power BI skills including data modeling, DAX formulas, report creation, dashboard design, and data visualization.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Graduate Management Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/graduate-management-solution/",
+    "description": "Assessment solution for management trainees and graduate management programs measuring analytical ability, leadership potential, and professional effectiveness.",
+    "duration": 45,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Analyst Short Form",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/analyst-short-form/",
+    "description": "Short screening assessment for analyst roles measuring numerical reasoning, verbal reasoning, and data interpretation skills.",
+    "duration": 25,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Business Analyst Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/business-analyst-solution/",
+    "description": "Comprehensive assessment for business analyst roles covering requirements analysis, process modeling, stakeholder communication, and analytical thinking.",
+    "duration": 45,
+    "test_type": ["Ability & Aptitude", "Knowledge & Skills", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Cognitive Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/cognitive-assessment/",
+    "description": "General cognitive ability assessment measuring fluid intelligence, learning potential, and problem-solving across verbal, numerical, and abstract domains.",
+    "duration": 30,
+    "test_type": ["Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "Yes"
+  },
+  {
+    "name": "Personality Assessment Short Form",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/personality-assessment-short-form/",
+    "description": "Short personality questionnaire measuring key work-relevant personality traits including conscientiousness, extraversion, and emotional stability.",
+    "duration": 15,
+    "test_type": ["Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Customer Facing - Sales Behaviors",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/customer-facing-sales-behaviors/",
+    "description": "Behavioral assessment measuring customer-facing sales competencies including relationship building, closing skills, and consultative selling approach.",
+    "duration": 20,
+    "test_type": ["Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "DevOps (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/devops-new/",
+    "description": "Tests DevOps knowledge including CI/CD pipelines, containerization (Docker/Kubernetes), cloud infrastructure, monitoring, and deployment automation.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "AWS (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/aws-new/",
+    "description": "Assesses Amazon Web Services knowledge including EC2, S3, Lambda, RDS, IAM, and cloud architecture best practices.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Microsoft Azure (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/microsoft-azure-new/",
+    "description": "Tests knowledge of Microsoft Azure cloud services including compute, storage, networking, identity, and cloud deployment models.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "React (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/react-new/",
+    "description": "Tests React.js knowledge including components, hooks, state management, lifecycle, Redux, and modern React development practices.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Angular (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/angular-new/",
+    "description": "Assesses Angular framework knowledge including components, services, dependency injection, RxJS, routing, and Angular best practices.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Node.js (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/nodejs-new/",
+    "description": "Tests Node.js knowledge including async programming, Express.js, RESTful APIs, event loop, streams, and server-side JavaScript development.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "C# (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/c-sharp-new/",
+    "description": "Assesses C# programming knowledge including OOP, LINQ, async/await, .NET framework, and modern C# features.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": ".NET (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/dotnet-new/",
+    "description": "Tests .NET framework and .NET Core knowledge including ASP.NET, Entity Framework, web APIs, and modern .NET development.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Cybersecurity (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/cybersecurity-new/",
+    "description": "Tests cybersecurity knowledge including network security, threat analysis, encryption, vulnerability assessment, and security best practices.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Graduate Technology Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/graduate-technology-solution/",
+    "description": "Assessment solution for technology graduates measuring cognitive ability, technical aptitude, and personality traits relevant to tech roles.",
+    "duration": 40,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior", "Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Situational Judgement Test - Management",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/sjt-management/",
+    "description": "Situational judgement test presenting realistic managerial scenarios. Measures judgement quality in handling team, operational, and business challenges.",
+    "duration": 30,
+    "test_type": ["Biodata & Situational Judgement"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Situational Judgement Test - Customer Service",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/sjt-customer-service/",
+    "description": "Situational judgement test for customer service roles presenting realistic customer interaction scenarios and measuring response quality.",
+    "duration": 25,
+    "test_type": ["Biodata & Situational Judgement"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Leadership Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/leadership-assessment/",
+    "description": "Comprehensive leadership assessment covering strategic thinking, influence, team development, change management, and senior leadership competencies.",
+    "duration": 45,
+    "test_type": ["Competencies", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Teamwork and Collaboration Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/teamwork-collaboration/",
+    "description": "Measures ability to work effectively in teams, collaborate across functions, communicate with stakeholders, and build productive working relationships.",
+    "duration": 20,
+    "test_type": ["Competencies", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Stakeholder Management",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/stakeholder-management/",
+    "description": "Assesses ability to identify, engage, and manage stakeholders effectively. Important for project managers, business analysts, and senior professionals.",
+    "duration": 25,
+    "test_type": ["Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Project Management",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/project-management/",
+    "description": "Tests project management knowledge including planning, scheduling, risk management, resource allocation, and project delivery methodologies.",
+    "duration": 25,
+    "test_type": ["Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Content Writing Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/content-writing/",
+    "description": "Evaluates content writing skills including clarity, tone, structure, SEO writing, proofreading, and the ability to write for different audiences.",
+    "duration": 30,
+    "test_type": ["Knowledge & Skills", "Simulations"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Creativity and Innovation",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/creativity-innovation/",
+    "description": "Assesses creative thinking, innovation mindset, problem reframing, and ability to generate novel solutions in professional contexts.",
+    "duration": 20,
+    "test_type": ["Competencies", "Ability & Aptitude"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Adaptability Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/adaptability/",
+    "description": "Measures openness to change, learning agility, resilience under pressure, and ability to adjust to new situations and requirements.",
+    "duration": 15,
+    "test_type": ["Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Problem Solving Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/problem-solving/",
+    "description": "Assesses structured problem-solving approach, analytical thinking, root cause analysis, and solution generation in professional scenarios.",
+    "duration": 30,
+    "test_type": ["Ability & Aptitude", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Emotional Intelligence (EI) Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/emotional-intelligence/",
+    "description": "Measures self-awareness, empathy, emotional regulation, social skills, and relationship management relevant to professional performance.",
+    "duration": 20,
+    "test_type": ["Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Communication Skills Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/communication-skills/",
+    "description": "Comprehensive assessment of professional communication including verbal, written, presentation, and listening skills in workplace contexts.",
+    "duration": 25,
+    "test_type": ["Competencies", "Knowledge & Skills"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Retail Management Solution",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/retail-management-solution/",
+    "description": "Assessment solution for retail managers measuring customer focus, team leadership, sales orientation, and operational management.",
+    "duration": 40,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  },
+  {
+    "name": "Healthcare Professional Assessment",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/healthcare-professional/",
+    "description": "Assessment for healthcare roles measuring patient focus, attention to detail, stress tolerance, and professional competencies.",
+    "duration": 35,
+    "test_type": ["Ability & Aptitude", "Personality & Behavior", "Competencies"],
+    "remote_support": "Yes",
+    "adaptive_support": "No"
+  }
+]

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SHL Assessment Recommender</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0c10;
+      --surface: #12151c;
+      --card: #181d27;
+      --border: #232940;
+      --accent: #5b8dee;
+      --accent2: #a78bfa;
+      --text: #e8eaf0;
+      --muted: #8b92a8;
+      --success: #34d399;
+      --warn: #fbbf24;
+      --tag-k: #1e3a5f;
+      --tag-k-t: #60a5fa;
+      --tag-p: #3b1f5e;
+      --tag-p-t: #c4b5fd;
+      --tag-a: #1a3d2e;
+      --tag-a-t: #6ee7b7;
+      --tag-c: #3d2910;
+      --tag-c-t: #fcd34d;
+      --tag-b: #3d1a1a;
+      --tag-b-t: #fca5a5;
+      --tag-s: #1a2d3d;
+      --tag-s-t: #7dd3fc;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30%;
+      left: -20%;
+      width: 70vw;
+      height: 70vh;
+      background: radial-gradient(ellipse, rgba(91,141,238,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -20%;
+      right: -10%;
+      width: 50vw;
+      height: 60vh;
+      background: radial-gradient(ellipse, rgba(167,139,250,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Header */
+    header {
+      padding: 56px 0 40px;
+      text-align: center;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 18px 6px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .logo-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #e8eaf0 0%, #8b92a8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Search box */
+    .search-section {
+      margin: 40px 0 16px;
+    }
+    .input-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .input-wrapper {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .input-wrapper:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(91,141,238,0.12);
+    }
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      resize: none;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 18px 20px 60px;
+      min-height: 140px;
+    }
+    textarea::placeholder { color: var(--muted); }
+    .input-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+    }
+    .char-count {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .btn-recommend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.12s;
+    }
+    .btn-recommend:hover { background: #4a7de0; transform: translateY(-1px); }
+    .btn-recommend:active { transform: translateY(0); }
+    .btn-recommend:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; transform: none; }
+
+    /* Chips for sample queries */
+    .samples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 280px;
+    }
+    .chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(91,141,238,0.06);
+    }
+
+    /* Loading */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 60px 0;
+    }
+    .loading.show { display: block; }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading p { color: var(--muted); font-size: 14px; }
+
+    /* Error */
+    .error-box {
+      display: none;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: #fca5a5;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .error-box.show { display: block; }
+
+    /* Results */
+    .results-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .results-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .results-count {
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 24px;
+      transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+      animation: slideIn 0.3s ease both;
+    }
+    .card:hover {
+      border-color: rgba(91,141,238,0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.15s; }
+    .card:nth-child(4) { animation-delay: 0.2s; }
+    .card:nth-child(5) { animation-delay: 0.25s; }
+    .card:nth-child(6) { animation-delay: 0.3s; }
+    .card:nth-child(7) { animation-delay: 0.35s; }
+    .card:nth-child(8) { animation-delay: 0.4s; }
+    .card:nth-child(9) { animation-delay: 0.45s; }
+    .card:nth-child(10) { animation-delay: 0.5s; }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .card-rank {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      background: var(--surface);
+      border-radius: 6px;
+      padding: 3px 8px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .card-name {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.4;
+      flex: 1;
+    }
+    .card-name a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .card-name a:hover { color: var(--accent); }
+
+    .card-desc {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      font-weight: 300;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 10px;
+    }
+    .meta-icon { font-size: 10px; }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-radius: 6px;
+      padding: 3px 9px;
+    }
+    .tag-k { background: var(--tag-k); color: var(--tag-k-t); }
+    .tag-p { background: var(--tag-p); color: var(--tag-p-t); }
+    .tag-a { background: var(--tag-a); color: var(--tag-a-t); }
+    .tag-c { background: var(--tag-c); color: var(--tag-c-t); }
+    .tag-b { background: var(--tag-b); color: var(--tag-b-t); }
+    .tag-s { background: var(--tag-s); color: var(--tag-s-t); }
+    .tag-d { background: var(--tag-b); color: var(--tag-b-t); }
+
+    .badge-yes {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--success);
+      background: rgba(52,211,153,0.08);
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 100px;
+      padding: 3px 9px;
+    }
+    .badge-no {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px 9px;
+    }
+
+    /* Empty state */
+    .empty {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--muted);
+    }
+    .empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.3; }
+    .empty h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .empty p { font-size: 14px; line-height: 1.6; }
+
+    /* Footer note */
+    .footer-note {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .footer-note a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="logo">
+      <span class="logo-dot"></span>
+      SHL Intelligence
+    </div>
+    <h1>Find the <em>right</em> assessments,<br/>instantly</h1>
+    <p class="subtitle">Enter a job description, natural language query, or paste a JD URL. Get 5–10 relevant SHL assessments in seconds.</p>
+  </header>
+
+  <div class="search-section">
+    <div class="input-label">Query / Job Description</div>
+    <div class="input-wrapper">
+      <textarea id="queryInput" placeholder="e.g. I'm hiring a Java developer who can collaborate with business teams. Looking for assessments under 40 minutes." maxlength="5000"></textarea>
+      <div class="input-footer">
+        <span class="char-count" id="charCount">0 / 5000</span>
+        <button class="btn-recommend" id="searchBtn" onclick="doRecommend()">
+          <span>&#10148;</span> Get Recommendations
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="samples" id="samples"></div>
+
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p>Analyzing your query and finding the best assessments…</p>
+  </div>
+
+  <div class="error-box" id="errorBox"></div>
+
+  <div id="resultsSection"></div>
+
+  <div class="footer-note">
+    Powered by SHL catalog · TF-IDF semantic retrieval · Balanced multi-domain recommendations<br/>
+    Data sourced from <a href="https://www.shl.com/solutions/products/product-catalog/" target="_blank">SHL Product Catalog</a>
+  </div>
+</div>
+
+<script>
+// ─── Embedded SHL Catalog ────────────────────────────────────────────────────
+// This is the local catalog used when the API is not available.
+// In production, this is served by the Flask /recommend endpoint.
+const LOCAL_CATALOG = [
+  { name:"Automata Fix (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/automata-fix-new/", description:"Coding assessment testing ability to identify and fix bugs across multiple languages.", duration:30, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Core Java (Entry Level) (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/core-java-entry-level-new/", description:"Tests Java programming concepts, OOP principles, data structures, and basic algorithms at entry level.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Java 8 (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/java-8-new/", description:"Assesses Java 8 features including lambda expressions, streams, and functional interfaces.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Core Java (Advanced Level) (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/core-java-advanced-level-new/", description:"Advanced Java covering concurrency, design patterns, JVM internals, and enterprise Java concepts.", duration:40, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Automata - Selenium", url:"https://www.shl.com/solutions/products/product-catalog/view/automata-selenium/", description:"Hands-on Selenium WebDriver automation testing assessment.", duration:40, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Automata - SQL (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/automata-sql-new/", description:"Hands-on SQL environment measuring ability to write queries, stored procedures, and data manipulation.", duration:30, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Python (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/python-new/", description:"Tests Python programming knowledge, data structures, modules, and scripting.", duration:11, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"JavaScript (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/javascript-new/", description:"Assesses JavaScript including ES6+, DOM manipulation, async programming, and closures.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"SQL Server (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/sql-server-new/", description:"Tests MS SQL Server knowledge including T-SQL, database design, and query optimization.", duration:30, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Occupational Personality Questionnaire (OPQ32r)", url:"https://www.shl.com/solutions/products/product-catalog/view/occupational-personality-questionnaire-opq32r/", description:"Measures 32 personality characteristics relevant to workplace behavior and performance.", duration:25, test_type:["Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Verify Numerical Ability", url:"https://www.shl.com/solutions/products/product-catalog/view/verify-numerical-ability/", description:"Measures ability to work with numerical data, interpret tables and graphs.", duration:17, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Verify Verbal Ability - Next Generation", url:"https://www.shl.com/solutions/products/product-catalog/view/verify-verbal-ability-next-generation/", description:"Assesses verbal reasoning including understanding written information and drawing logical conclusions.", duration:17, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"SHL Verify Interactive - Inductive Reasoning", url:"https://www.shl.com/solutions/products/product-catalog/view/shl-verify-interactive-inductive-reasoning/", description:"Interactive inductive reasoning test measuring pattern recognition and problem-solving.", duration:25, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"SHL Verify Interactive - Numerical Calculation", url:"https://www.shl.com/solutions/products/product-catalog/view/shl-verify-interactive-numerical-calculation/", description:"Interactive numerical calculation test for roles requiring quantitative analysis.", duration:25, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Global Skills Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/global-skills-assessment/", description:"Comprehensive assessment measuring core cognitive abilities across multiple professional domains.", duration:45, test_type:["Ability & Aptitude","Knowledge & Skills"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Professional 7.1 Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/professional-7-1-solution/", description:"Comprehensive solution measuring cognitive ability, personality, and motivation for professional roles.", duration:40, test_type:["Ability & Aptitude","Personality & Behavior","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"HTML/CSS (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/htmlcss-new/", description:"Tests HTML5 and CSS3 including semantic markup, responsive design, and modern web practices.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"CSS3 (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/css3-new/", description:"Assesses CSS3 including selectors, animations, transitions, and media queries.", duration:15, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Manual Testing (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/manual-testing-new/", description:"Evaluates knowledge of software testing methodologies, test case design, and QA practices.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Tableau (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/tableau-new/", description:"Assesses Tableau for data visualization, dashboard creation, and BI reporting.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Data Warehousing Concepts", url:"https://www.shl.com/solutions/products/product-catalog/view/data-warehousing-concepts/", description:"Tests data warehousing concepts, ETL processes, dimensional modeling, and BI fundamentals.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"SQL Server Analysis Services (SSAS) (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/sql-server-analysis-services-%28ssas%29-%28new%29/", description:"Assesses SSAS for OLAP cubes, multidimensional models, and MDX queries.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Marketing (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/marketing-new/", description:"Tests marketing principles, digital marketing, branding, and marketing strategy.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Digital Advertising (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/digital-advertising-new/", description:"Assesses digital advertising platforms, PPC, programmatic, and social media advertising.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Search Engine Optimization (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/search-engine-optimization-new/", description:"Tests SEO best practices, keyword research, on-page/off-page optimization.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Selenium (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/selenium-new/", description:"Tests conceptual knowledge of Selenium WebDriver and automated testing best practices.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Drupal (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/drupal-new/", description:"Assesses Drupal CMS including content management, theming, and site administration.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Microsoft Excel 365 (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/microsoft-excel-365-new/", description:"Comprehensive Excel 365 assessment including advanced formulas, pivot tables, and Power Query.", duration:30, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Microsoft Excel 365 Essentials (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/microsoft-excel-365-essentials-new/", description:"Tests essential Excel skills including basic formulas, charts, and data filtering.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Basic Computer Literacy - Windows 10 (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/basic-computer-literacy-windows-10-new/", description:"Tests basic computer skills including Windows 10 navigation and file management.", duration:15, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"English Comprehension (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/english-comprehension-new/", description:"Measures ability to understand and interpret written English for professional roles.", duration:15, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Business Communication (Adaptive)", url:"https://www.shl.com/solutions/products/product-catalog/view/business-communication-adaptive/", description:"Adaptive assessment measuring written business communication and email writing skills.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Written English v1", url:"https://www.shl.com/solutions/products/product-catalog/view/written-english-v1/", description:"Evaluates written English proficiency including grammar, spelling, and professional writing.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"SVAR Spoken English (Indian Accent) (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/svar-spoken-english-indian-accent-new/", description:"AI-powered spoken English assessment calibrated for Indian accent measuring fluency and grammar.", duration:15, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Interpersonal Communications", url:"https://www.shl.com/products/product-catalog/view/interpersonal-communications/", description:"Measures interpersonal communication, teamwork, and collaboration in professional settings.", duration:20, test_type:["Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"OPQ Leadership Report", url:"https://www.shl.com/solutions/products/product-catalog/view/opq-leadership-report/", description:"Detailed leadership report covering styles, team management, decision-making using OPQ data.", duration:25, test_type:["Personality & Behavior","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"OPQ Team Types and Leadership Styles Report", url:"https://www.shl.com/solutions/products/product-catalog/view/opq-team-types-and-leadership-styles-report", description:"Insights into team role preferences and leadership styles based on OPQ personality data.", duration:25, test_type:["Personality & Behavior","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Enterprise Leadership Report 2.0", url:"https://www.shl.com/products/product-catalog/view/enterprise-leadership-report-2-0/", description:"Leadership report measuring strategic thinking, influencing, and enterprise leadership competencies.", duration:35, test_type:["Personality & Behavior","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Enterprise Leadership Report", url:"https://www.shl.com/products/product-catalog/view/enterprise-leadership-report/", description:"Leadership assessment measuring strategic vision, people leadership, and business acumen.", duration:35, test_type:["Personality & Behavior","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Manager 8.0 JFA", url:"https://www.shl.com/solutions/products/product-catalog/view/manager-8-0-jfa-4310/", description:"Managerial assessment measuring leadership potential, people management, and decision-making.", duration:40, test_type:["Ability & Aptitude","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Entry Level Sales 7.1", url:"https://www.shl.com/solutions/products/product-catalog/view/entry-level-sales-7-1/", description:"Comprehensive assessment for entry-level sales measuring aptitude, customer orientation, and motivation.", duration:35, test_type:["Ability & Aptitude","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Entry Level Sales Sift Out 7.1", url:"https://www.shl.com/solutions/products/product-catalog/view/entry-level-sales-sift-out-7-1/", description:"Short screening for entry-level sales candidates measuring basic competencies.", duration:20, test_type:["Ability & Aptitude","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Entry Level Sales Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/entry-level-sales-solution/", description:"Complete selection solution for entry-level sales including aptitude, personality, and simulations.", duration:40, test_type:["Ability & Aptitude","Personality & Behavior","Simulations"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Technical Sales Associate Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/technical-sales-associate-solution/", description:"Assessment for technical sales combining technical knowledge with sales aptitude.", duration:45, test_type:["Knowledge & Skills","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Sales Representative Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/sales-representative-solution/", description:"Comprehensive selection for sales reps measuring skills, customer focus, and results orientation.", duration:40, test_type:["Ability & Aptitude","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Administrative Professional Short Form", url:"https://www.shl.com/solutions/products/product-catalog/view/administrative-professional-short-form/", description:"Short screening for admin professionals measuring attention to detail and organizational skills.", duration:30, test_type:["Ability & Aptitude","Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Bank Administrative Assistant Short Form", url:"https://www.shl.com/solutions/products/product-catalog/view/bank-administrative-assistant-short-form/", description:"Assessment for banking administrative roles measuring accuracy and numerical skills.", duration:30, test_type:["Ability & Aptitude","Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Financial Professional Short Form", url:"https://www.shl.com/solutions/products/product-catalog/view/financial-professional-short-form/", description:"Screening for financial professionals measuring numerical reasoning and analytical thinking.", duration:30, test_type:["Ability & Aptitude","Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"General Entry Level - Data Entry 7.0 Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/general-entry-level-data-entry-7-0-solution/", description:"Assessment for data entry roles measuring typing accuracy, speed, and attention to detail.", duration:25, test_type:["Knowledge & Skills","Ability & Aptitude"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Professional 7.0 Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/professional-7-0-solution-3958/", description:"Comprehensive selection for professional roles measuring cognitive ability and personality.", duration:40, test_type:["Ability & Aptitude","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"WriteX Email Writing Sales (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/writex-email-writing-sales-new/", description:"Simulated email writing assessment measuring sales communication and persuasiveness.", duration:20, test_type:["Simulations","Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Technology Professional 8.0 Job Focused Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/technology-professional-8-0-job-focused-assessment/", description:"Assesses behavioral attributes required for success in fast-paced technology roles.", duration:10, test_type:["Competencies","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Product Management", url:"https://www.shl.com/solutions/products/product-catalog/view/product-management/", description:"Assessment covering product strategy, roadmapping, stakeholder management, and SDLC.", duration:30, test_type:["Knowledge & Skills","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"JIRA (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/jira-new/", description:"Tests JIRA knowledge including issue tracking, workflow configuration, and sprint management.", duration:15, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Scrum Master", url:"https://www.shl.com/solutions/products/product-catalog/view/scrum-master/", description:"Assesses Scrum ceremonies, impediment removal, team facilitation, and Agile coaching.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Customer Service", url:"https://www.shl.com/solutions/products/product-catalog/view/customer-service/", description:"Assesses customer service skills including empathy, problem resolution, and communication.", duration:25, test_type:["Competencies","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Customer Support Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/customer-support-assessment/", description:"Comprehensive assessment for customer support measuring communication, empathy, and problem-solving.", duration:30, test_type:["Competencies","Personality & Behavior","Simulations"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Graduate 8.0 Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/graduate-8-0-solution/", description:"Assessment solution for graduate-level hiring measuring cognitive abilities and personality.", duration:35, test_type:["Ability & Aptitude","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Cognitive Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/cognitive-assessment/", description:"General cognitive ability measuring fluid intelligence and problem-solving across domains.", duration:30, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Motivation Questionnaire (MQ)", url:"https://www.shl.com/solutions/products/product-catalog/view/motivation-questionnaire/", description:"Assesses work motivations and energy drivers, helping identify engagement and retention.", duration:20, test_type:["Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Call Center Agent Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/call-center-agent-solution/", description:"Complete solution for call center agents measuring verbal ability, customer orientation, and simulations.", duration:35, test_type:["Ability & Aptitude","Personality & Behavior","Simulations"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Data Science", url:"https://www.shl.com/solutions/products/product-catalog/view/data-science/", description:"Assesses data science skills including ML concepts, Python, and data visualization.", duration:30, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Machine Learning", url:"https://www.shl.com/solutions/products/product-catalog/view/machine-learning/", description:"Tests ML algorithms, model training, validation, feature engineering, and applied ML.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Leadership Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/leadership-assessment/", description:"Comprehensive leadership covering strategic thinking, influence, and change management.", duration:45, test_type:["Competencies","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Teamwork and Collaboration Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/teamwork-collaboration/", description:"Measures teamwork, cross-functional collaboration, and building productive working relationships.", duration:20, test_type:["Competencies","Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Content Writing Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/content-writing/", description:"Evaluates content writing skills including clarity, tone, SEO writing, and audience adaptation.", duration:30, test_type:["Knowledge & Skills","Simulations"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Analyst Short Form", url:"https://www.shl.com/solutions/products/product-catalog/view/analyst-short-form/", description:"Short screening for analyst roles measuring numerical reasoning and data interpretation.", duration:25, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Business Analyst Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/business-analyst-solution/", description:"Comprehensive assessment for business analysts covering requirements analysis and analytical thinking.", duration:45, test_type:["Ability & Aptitude","Knowledge & Skills","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Agile Software Development", url:"https://www.shl.com/solutions/products/product-catalog/view/agile-software-development/", description:"Tests Agile methodologies, Scrum framework, sprint planning, and project management principles.", duration:20, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"DevOps (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/devops-new/", description:"Tests DevOps knowledge including CI/CD, Docker/Kubernetes, cloud infrastructure, and monitoring.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"AWS (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/aws-new/", description:"Assesses Amazon Web Services knowledge including EC2, S3, Lambda, and cloud architecture.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"React (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/react-new/", description:"Tests React.js knowledge including hooks, state management, and modern React practices.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Node.js (New)", url:"https://www.shl.com/solutions/products/product-catalog/view/nodejs-new/", description:"Tests Node.js including async programming, Express.js, and RESTful API development.", duration:25, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Customer Facing - Sales Behaviors", url:"https://www.shl.com/solutions/products/product-catalog/view/customer-facing-sales-behaviors/", description:"Behavioral assessment measuring customer-facing competencies and consultative selling approach.", duration:20, test_type:["Personality & Behavior","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Communication Skills Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/communication-skills/", description:"Comprehensive professional communication including verbal, written, presentation, and listening.", duration:25, test_type:["Competencies","Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Graduate Management Solution", url:"https://www.shl.com/solutions/products/product-catalog/view/graduate-management-solution/", description:"Assessment for management trainees measuring analytical ability and leadership potential.", duration:45, test_type:["Ability & Aptitude","Personality & Behavior","Competencies"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Workplace English Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/workplace-english-assessment/", description:"Comprehensive English assessment for workplace communication covering reading and writing.", duration:30, test_type:["Knowledge & Skills"], remote_support:"Yes", adaptive_support:"No" },
+  { name:"Numerical Reasoning", url:"https://www.shl.com/solutions/products/product-catalog/view/numerical-reasoning/", description:"Tests ability to analyze numerical data and make correct decisions based on statistics.", duration:25, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Verbal Reasoning", url:"https://www.shl.com/solutions/products/product-catalog/view/verbal-reasoning/", description:"Assesses ability to evaluate written arguments and draw correct conclusions from text.", duration:19, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Inductive Reasoning", url:"https://www.shl.com/solutions/products/product-catalog/view/inductive-reasoning/", description:"Measures ability to identify patterns from abstract information. Predicts learning agility.", duration:24, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Deductive Reasoning", url:"https://www.shl.com/solutions/products/product-catalog/view/deductive-reasoning/", description:"Measures ability to draw logical conclusions from given information for analytical roles.", duration:20, test_type:["Ability & Aptitude"], remote_support:"Yes", adaptive_support:"Yes" },
+  { name:"Emotional Intelligence (EI) Assessment", url:"https://www.shl.com/solutions/products/product-catalog/view/emotional-intelligence/", description:"Measures self-awareness, empathy, emotional regulation, and relationship management.", duration:20, test_type:["Personality & Behavior"], remote_support:"Yes", adaptive_support:"No" },
+];
+
+// ─── Simple local recommender ────────────────────────────────────────────────
+const STOPWORDS = new Set(['a','an','the','and','or','but','in','on','at','to','for','of','with','is','are','was','were','be','been','have','has','had','do','does','did','will','would','can','could','should','may','might','i','we','you','he','she','they','it','this','that','these','those','my','your','our','their','its','who','what','which','when','where','how','if','then','than','so','as','up','down','not','no','any','all','some','more','most','also','just','only','very','well','get','use','need','want','look','make','take','go','good','best','years','year','experience','work','role','job','position','hire','hiring','looking','seeking','find','help','test','assessment','candidate','application','screen','recommend']);
+
+function tokenize(text) {
+  return text.toLowerCase().replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(t => t.length > 2 && !STOPWORDS.has(t));
+}
+
+const KMAP = {
+  'java':['java','automata fix'],'python':['python'],'sql':['sql','data warehousing'],'javascript':['javascript'],'selenium':['selenium'],'excel':['excel'],'tableau':['tableau'],'marketing':['marketing','digital advertising','search engine'],'seo':['search engine','marketing'],'bank':['bank administrative','financial professional'],'admin':['administrative professional','bank administrative'],'sales':['entry level sales','sales representative','technical sales'],'customer service':['customer service','customer support','call center'],'leadership':['enterprise leadership','opq leadership','leadership assessment','manager'],'cognitive':['verify numerical','verify verbal','inductive','deductive','cognitive','shl verify'],'personality':['occupational personality','opq','motivation'],'english':['english comprehension','written english','svar','business communication'],'content writ':['content writing','written english','search engine'],'coo':['enterprise leadership','opq leadership','global skills'],'ceo':['enterprise leadership','opq leadership','global skills'],'product manag':['product management','jira','agile','confluence'],'java developer':['java','automata fix','interpersonal','teamwork'],'data analyst':['sql server','automata - sql','tableau','excel','data warehousing','python'],'data science':['data science','machine learning','python','r programming'],'devops':['devops','aws','azure'],'react':['react'],'angular':['angular'],'node':['node.js'],'graduate':['graduate','entry level'],'communicate':['business communication','interpersonal','teamwork'],'collaborate':['teamwork','interpersonal','occupational personality'],'stakeholder':['stakeholder','teamwork','interpersonal'],
+};
+
+function getTypeBoostTypes(q) {
+  const ql = q.toLowerCase();
+  const types = [];
+  if (/cognitive|aptitude|reasoning|numerical|verbal|logical|inductive|deductive/.test(ql)) types.push('Ability & Aptitude');
+  if (/personality|behavior|behaviour|soft skill|trait|opq/.test(ql)) types.push('Personality & Behavior');
+  if (/java|python|sql|javascript|coding|programming|technical|excel|software|react|angular|node|devops|selenium|automation|tableau/.test(ql)) types.push('Knowledge & Skills');
+  if (/competen|leadership|management|communication|teamwork|collaboration|stakeholder|interpersonal|collaborate/.test(ql)) types.push('Competencies');
+  if (/sales|selling|commercial/.test(ql) && !types.includes('Personality & Behavior')) types.push('Personality & Behavior');
+  if (/coo|ceo|cfo|cto|senior|director|executive|manager|head of/.test(ql)) { ['Personality & Behavior','Competencies','Ability & Aptitude'].forEach(t => { if(!types.includes(t)) types.push(t); }); }
+  if (/graduate|fresher|entry level|new grad|junior/.test(ql)) { ['Ability & Aptitude','Personality & Behavior'].forEach(t => { if(!types.includes(t)) types.push(t); }); }
+  return types;
+}
+
+function getDurationLimit(q) {
+  const ql = q.toLowerCase();
+  let m = ql.match(/(\d+)\s*hour/); if (m) return parseInt(m[1]) * 60;
+  m = ql.match(/(\d+)\s*min/); if (m) return parseInt(m[1]);
+  return null;
+}
+
+function localRecommend(query) {
+  const ql = query.toLowerCase();
+  const qTokens = tokenize(query);
+  const qTf = {};
+  qTokens.forEach(t => { qTf[t] = (qTf[t]||0)+1; });
+  const maxDur = getDurationLimit(query);
+  const neededTypes = getTypeBoostTypes(query);
+
+  // Keyword boosts
+  const kboosts = {};
+  Object.entries(KMAP).forEach(([kw, names]) => {
+    if (ql.includes(kw)) {
+      LOCAL_CATALOG.forEach((item, i) => {
+        const nl = item.name.toLowerCase();
+        if (names.some(n => nl.includes(n))) kboosts[i] = (kboosts[i]||0) + 0.3;
+      });
+    }
+  });
+
+  // TF-IDF-like scoring (simplified - dot product without full IDF)
+  const scores = LOCAL_CATALOG.map((item, i) => {
+    const docText = `${item.name} ${item.description} ${item.test_type.join(' ')}`;
+    const docTokens = tokenize(docText);
+    const docTf = {};
+    docTokens.forEach(t => { docTf[t] = (docTf[t]||0)+1; });
+    const common = Object.keys(qTf).filter(t => docTf[t]);
+    let dot = common.reduce((s,t) => s + qTf[t]*docTf[t], 0);
+    const n1 = Math.sqrt(Object.values(qTf).reduce((s,v)=>s+v*v,0));
+    const n2 = Math.sqrt(Object.values(docTf).reduce((s,v)=>s+v*v,0));
+    const sim = (n1 && n2) ? dot/(n1*n2) : 0;
+    const typeBoost = item.test_type.filter(t => neededTypes.includes(t)).length * 0.12;
+    const kw = kboosts[i] || 0;
+    const durOk = !maxDur || item.duration <= maxDur;
+    return { item, score: durOk ? sim + typeBoost + kw : 0 };
+  });
+
+  scores.sort((a,b) => b.score - a.score);
+
+  // Balanced pick
+  let results = [];
+  if (neededTypes.length > 1) {
+    const perType = {};
+    neededTypes.forEach(t => perType[t] = []);
+    scores.forEach(({item, score}) => {
+      if (score <= 0) return;
+      item.test_type.forEach(t => { if (neededTypes.includes(t)) perType[t].push(item); });
+    });
+    const slots = Math.max(1, Math.floor(10 / neededTypes.length));
+    const seen = new Set();
+    neededTypes.forEach(t => {
+      let c = 0;
+      for (const item of (perType[t]||[])) {
+        if (!seen.has(item.url)) { results.push(item); seen.add(item.url); c++; }
+        if (c >= slots) break;
+      }
+    });
+    scores.forEach(({item}) => {
+      if (!seen.has(item.url) && results.length < 10) { results.push(item); seen.add(item.url); }
+    });
+  } else {
+    results = scores.filter(s => s.score > 0).map(s => s.item).slice(0, 10);
+  }
+
+  // Ensure at least 5
+  if (results.length < 5) {
+    const seen = new Set(results.map(r => r.url));
+    scores.forEach(({item}) => { if (!seen.has(item.url) && results.length < 5) { results.push(item); seen.add(item.url); }});
+  }
+
+  return results.slice(0, 10);
+}
+
+// ─── UI Logic ────────────────────────────────────────────────────────────────
+const SAMPLES = [
+  "I am hiring for Java developers who can also collaborate effectively with my business teams. Looking for an assessment that can be completed in 40 minutes.",
+  "Looking to hire mid-level professionals proficient in Python, SQL and JavaScript. Max duration 60 minutes.",
+  "Hiring for an analyst and want to screen using Cognitive and personality tests, within 45 mins.",
+  "I want to hire Customer support executives expert in English communication.",
+  "Looking for a COO for my company and want to assess cultural fit and leadership.",
+  "Hiring new graduates for a sales role. Need a 30 min assessment.",
+  "I want to hire a product manager with expertise in SDLC, Jira and Confluence."
+];
+
+function renderSamples() {
+  const container = document.getElementById('samples');
+  SAMPLES.forEach(s => {
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.textContent = s.length > 60 ? s.slice(0,57)+'…' : s;
+    chip.title = s;
+    chip.onclick = () => {
+      document.getElementById('queryInput').value = s;
+      updateCharCount();
+    };
+    container.appendChild(chip);
+  });
+}
+
+function updateCharCount() {
+  const ta = document.getElementById('queryInput');
+  document.getElementById('charCount').textContent = `${ta.value.length} / 5000`;
+}
+
+function typeTagClass(type) {
+  const m = { 'Knowledge & Skills':'k', 'Personality & Behavior':'p', 'Ability & Aptitude':'a', 'Competencies':'c', 'Biodata & Situational Judgement':'b', 'Simulations':'s', 'Development & 360':'d', 'Assessment Exercises':'d' };
+  return `tag tag-${m[type]||'k'}`;
+}
+
+function renderResults(items, query) {
+  const section = document.getElementById('resultsSection');
+  if (!items || items.length === 0) {
+    section.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><h3>No assessments found</h3><p>Try a different query or broaden your search criteria.</p></div>`;
+    return;
+  }
+  let html = `<div class="results-header"><div class="results-title">Recommendations</div><div class="results-count">${items.length} assessments</div></div><div class="cards">`;
+  items.forEach((item, i) => {
+    const tags = item.test_type.map(t => `<span class="${typeTagClass(t)}">${t}</span>`).join('');
+    const adaptive = item.adaptive_support === 'Yes'
+      ? `<span class="badge-yes">⚡ Adaptive</span>`
+      : `<span class="badge-no">Static</span>`;
+    const remote = item.remote_support === 'Yes'
+      ? `<span class="badge-yes">🌐 Remote</span>`
+      : `<span class="badge-no">In-person</span>`;
+    html += `
+      <div class="card">
+        <div class="card-top">
+          <span class="card-rank">#${i+1}</span>
+          <div class="card-name"><a href="${item.url}" target="_blank" rel="noopener">${item.name} ↗</a></div>
+        </div>
+        <p class="card-desc">${item.description}</p>
+        <div class="card-meta">
+          ${tags}
+          <span class="meta-item"><span class="meta-icon">⏱</span> ${item.duration} min</span>
+          ${remote}
+          ${adaptive}
+        </div>
+      </div>`;
+  });
+  html += `</div>`;
+  section.innerHTML = html;
+}
+
+async function doRecommend() {
+  const query = document.getElementById('queryInput').value.trim();
+  if (!query) return;
+
+  const btn = document.getElementById('searchBtn');
+  const loading = document.getElementById('loading');
+  const errorBox = document.getElementById('errorBox');
+  const resultsSection = document.getElementById('resultsSection');
+
+  btn.disabled = true;
+  loading.classList.add('show');
+  errorBox.classList.remove('show');
+  resultsSection.innerHTML = '';
+
+  try {
+    // Try API first, fall back to local
+    let items;
+    try {
+      const API_URL = window.SHL_API_URL || '';
+      if (API_URL) {
+        const res = await fetch(`${API_URL}/recommend`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query }),
+          signal: AbortSignal.timeout(8000)
+        });
+        if (res.ok) {
+          const data = await res.json();
+          items = data.recommended_assessments;
+        }
+      }
+    } catch(e) { /* fall through to local */ }
+
+    if (!items) {
+      // Use local recommender
+      await new Promise(r => setTimeout(r, 600)); // simulate latency
+      items = localRecommend(query);
+    }
+
+    renderResults(items, query);
+  } catch (err) {
+    errorBox.textContent = `Error: ${err.message}. Please try again.`;
+    errorBox.classList.add('show');
+  } finally {
+    loading.classList.remove('show');
+    btn.disabled = false;
+  }
+}
+
+// Init
+document.getElementById('queryInput').addEventListener('input', updateCharCount);
+document.getElementById('queryInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) doRecommend();
+});
+renderSamples();
+</script>
+</body>
+</html>
