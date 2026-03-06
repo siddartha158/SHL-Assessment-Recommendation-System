@@ -756,7 +756,7 @@ async function doRecommend() {
     // Try API first, fall back to local
     let items;
     try {
-      const API_URL = window.SHL_API_URL || '';
+      const API_URL = window.SHL_API_URL || 'https://shl-assessment-recommendation-system-29hi.onrender.com';
       if (API_URL) {
         const res = await fetch(`${API_URL}/recommend`, {
           method: 'POST',
